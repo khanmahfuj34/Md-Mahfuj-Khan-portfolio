@@ -1,0 +1,10 @@
+{
+  "name": "Md Mahfuj Al Hossain Khan - Developer Portfolio",
+  "description": "The premium developer portfolio of Md Mahfuj Al Hossain Khan, Full Stack Web Developer. Showcasing full-stack logistics and travel platforms, skill metrics, and educational journey.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
