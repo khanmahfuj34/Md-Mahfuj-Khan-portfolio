@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* License and credit lines */}
-        <div className="mt-8 border-t border-gray-100 pt-6 text-center text-[11px] text-gray-450 dark:border-gray-900 dark:text-gray-500 flex flex-col sm:flex-row sm:justify-between gap-4">
+        <div className="mt-8 border-t border-gray-100 pt-6 text-center text-[11px] text-slate-500 dark:border-gray-900 dark:text-gray-500 flex flex-col sm:flex-row sm:justify-between gap-4">
           <p>© {new Date().getFullYear()} Md Mahfuj Al Hossain Khan. All rights secured internationally.</p>
           <p className="flex items-center justify-center gap-1">
             Engineered with <Heart size={10} className="text-red-500 animate-pulse" /> using Next-gen TypeScript and React Ecosystems.

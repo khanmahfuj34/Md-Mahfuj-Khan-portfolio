@@ -32,7 +32,7 @@ export const Projects: React.FC = () => {
               Selected Engineered Products
             </h2>
           </div>
-          <p className="mt-2 max-w-sm text-sm text-gray-500 dark:text-gray-400 md:mt-0">
+          <p className="mt-2 max-w-sm text-sm text-gray-600 dark:text-gray-400 md:mt-0">
             Click on headings to cycle between major full-stack applications. Each represents a unique architectural focus.
           </p>
         </div>
@@ -43,17 +43,17 @@ export const Projects: React.FC = () => {
             <button
               key={project.id}
               onClick={() => setSelectedProjectId(project.id)}
-              className={`relative rounded-xl px-4 py-2.5 text-left transition-all ${
+              className={`relative rounded-xl px-4 py-2.5 text-left transition-all border ${
                 selectedProjectId === project.id
-                  ? "bg-gray-100 dark:bg-gray-900"
-                  : "hover:bg-gray-50 dark:hover:bg-gray-950"
+                  ? "bg-[#F5F3FF] border-[#DDD6FE] shadow-[0_4px_12px_rgba(124,58,237,0.05)] dark:bg-gray-900 dark:border-transparent"
+                  : "border-transparent hover:bg-gray-50/80 dark:hover:bg-gray-950/60"
               }`}
             >
               <div className="flex items-center space-x-2.5">
                 <span className={`h-2.5 w-2.5 rounded-full bg-gradient-to-tr ${project.accentColor}`} />
                 <span className="text-sm font-bold text-gray-900 dark:text-white">{project.title}</span>
               </div>
-              <span className="block mt-0.5 ml-5 text-[10px] text-gray-500 dark:text-gray-400">
+              <span className={`block mt-0.5 ml-5 text-[10px] ${selectedProjectId === project.id ? "text-purple-700/80 dark:text-gray-400" : "text-gray-500 dark:text-gray-400"}`}>
                 {project.subtitle}
               </span>
             </button>
@@ -81,7 +81,7 @@ export const Projects: React.FC = () => {
                   <h3 className="mt-3 font-display text-2xl font-extrabold text-gray-900 dark:text-white sm:text-3xl">
                     {activeProject.title}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 text-sm text-gray-650 dark:text-gray-400">
                     {activeProject.subtitle}
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export const Projects: React.FC = () => {
                   {activeProject.stats.map((stat) => (
                     <div key={stat.label} className="rounded-xl border border-slate-200 bg-slate-50/50 p-3 text-center dark:border-gray-900 dark:bg-gray-900/30">
                       <p className="font-display text-xs font-bold text-slate-900 dark:text-white">{stat.value}</p>
-                      <p className="mt-0.5 text-[9px] text-slate-500 uppercase tracking-wider">{stat.label}</p>
+                      <p className="mt-0.5 text-[9px] text-slate-600 uppercase tracking-wider">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -146,7 +146,7 @@ export const Projects: React.FC = () => {
                         {activeProject.solutions[index] && (
                           <div className="ml-5 flex items-start space-x-2">
                             <CheckCircle2 size={12} className="mt-0.5 text-emerald-500" />
-                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                            <span className="text-xs text-gray-600 dark:text-gray-400">
                               {activeProject.solutions[index]}
                             </span>
                           </div>

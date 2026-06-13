@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "./ThemeContext";
-import { 
-  Menu, 
-  X, 
-  Sun, 
-  Moon, 
-  Home, 
-  User, 
-  Code2, 
-  GraduationCap, 
-  Briefcase, 
-  LayoutGrid, 
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Home,
+  User,
+  Code2,
+  GraduationCap,
+  Briefcase,
+  LayoutGrid,
   ChevronDown,
   Compass,
   Github,
@@ -33,8 +33,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { id: "hero", label: "Home", icon: Home },
     { id: "about", label: "About", icon: User },
     { id: "skills", label: "Tech Stack", icon: Code2 },
-    { id: "education", label: "Qualification", icon: GraduationCap },
-    { id: "projects", label: "Projects", icon: Briefcase }
+    { id: "projects", label: "Projects", icon: Briefcase },
+    { id: "education", label: "Qualification", icon: GraduationCap }
   ];
 
   const moreItems = [
@@ -60,6 +60,29 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  // Auto-close mobile drawer when window resizes to desktop width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -107,19 +130,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
-                isActive
-                  ? "bg-blue-600 border border-blue-500 text-white shadow-[0_0_12px_rgba(37,99,235,0.3)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white dark:shadow-[0_0_12px_rgba(139,92,246,0.3)]"
+              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${isActive
+                  ? "text-[#7C3AED] bg-[#F5F3FF] border border-[#DDD6FE] shadow-[0_4px_12px_rgba(124,58,237,0.08)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white dark:shadow-[0_0_12px_rgba(139,92,246,0.3)]"
                   : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              }`}
+                }`}
             >
-              <Icon 
-                size={14} 
-                className={`transition-colors ${
-                  isActive 
-                    ? "text-yellow-500 dark:text-yellow-400" 
+              <Icon
+                size={14}
+                className={`transition-colors ${isActive
+                    ? "text-yellow-500 dark:text-yellow-400"
                     : "text-gray-500 dark:text-gray-400 group-hover:text-gray-900"
-                }`} 
+                  }`}
               />
               <span>{item.label}</span>
               {isActive && (
@@ -137,19 +158,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         <div ref={moreRef} className="relative">
           <button
             onClick={() => setIsMoreOpen(!isMoreOpen)}
-            className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
-              isMoreActive
-                ? "bg-blue-600 border border-blue-500 text-white shadow-[0_0_12px_rgba(37,99,235,0.3)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white dark:shadow-[0_0_12px_rgba(139,92,246,0.3)]"
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${isMoreActive
+                ? "text-[#7C3AED] bg-[#F5F3FF] border border-[#DDD6FE] shadow-[0_4px_12px_rgba(124,58,237,0.08)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white dark:shadow-[0_0_12px_rgba(139,92,246,0.3)]"
                 : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-            }`}
+              }`}
           >
-            <LayoutGrid 
-              size={14} 
-              className={`transition-colors ${
-                isMoreActive 
-                  ? "text-yellow-500 dark:text-yellow-400" 
+            <LayoutGrid
+              size={14}
+              className={`transition-colors ${isMoreActive
+                  ? "text-yellow-500 dark:text-yellow-400"
                   : "text-gray-500 dark:text-gray-400"
-              }`} 
+                }`}
             />
             <span>More</span>
             <ChevronDown size={12} className={`transition-transform duration-200 ${isMoreOpen ? "rotate-180" : ""}`} />
@@ -172,11 +191,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className={`flex w-full items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-left text-xs font-medium transition-colors ${
-                        isActive
-                          ? "bg-blue-50 text-blue-700 dark:bg-purple-950/40 dark:text-purple-300"
+                      className={`flex w-full items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-left text-xs font-medium transition-colors ${isActive
+                          ? "bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300"
                           : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-900/60"
-                      }`}
+                        }`}
                     >
                       <Icon size={14} className={isActive ? "text-blue-600 dark:text-purple-400" : "text-gray-400"} />
                       <span>{item.label}</span>
@@ -194,7 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         {/* THEME TOGGLE (Sun/Moon in glowing circle) */}
         <button
           onClick={toggleTheme}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-500/25 bg-white/80 text-gray-700 shadow-md transition-all duration-300 hover:scale-105 active:scale-95 hover:border-blue-500/50 dark:border-[#382b8a]/50 dark:bg-[#0e0a24]/90 dark:text-yellow-400 dark:shadow-[0_0_15px_rgba(139,92,246,0.15)] dark:hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] dark:hover:border-purple-500/50"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#DDD6FE] bg-[#F5F3FF]/90 text-[#7C3AED] shadow-md transition-all duration-300 hover:scale-105 active:scale-95 hover:border-[#C084FC] hover:bg-[#EDE9FE] dark:border-[#382b8a]/50 dark:bg-[#0e0a24]/90 dark:text-yellow-400 dark:shadow-[0_0_15px_rgba(139,92,246,0.15)] dark:hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] dark:hover:border-purple-500/50"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? <Sun size={18} className="animate-spin-slow" /> : <Moon size={18} />}
@@ -210,37 +228,48 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </button>
       </div>
 
-      {/* MOBILE NAV PANEL */}
+      {/* MOBILE NAV PANEL WITH BACKDROP */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="pointer-events-auto fixed top-18 left-4 right-4 rounded-3xl border border-gray-200/80 bg-white/95 p-4 shadow-2xl backdrop-blur-lg dark:border-[#2b2164]/60 dark:bg-[#0c0824]/95 md:hidden"
-          >
-            <div className="space-y-1">
-              {[...navItems, ...moreItems].map((item) => {
-                const Icon = item.icon;
-                const isActive = activeSection === item.id;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm font-semibold transition-colors ${
-                      isActive
-                        ? "bg-blue-600 border border-blue-500 text-white dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white"
-                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-900/60"
-                    }`}
-                  >
-                    <Icon size={16} className={isActive ? "text-yellow-400 dark:text-yellow-400" : "text-gray-400"} />
-                    <span>{item.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </motion.div>
+          <>
+            {/* Full screen backdrop blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 -z-10 bg-black/45 backdrop-blur-xs md:hidden pointer-events-auto w-screen h-screen top-0 left-0"
+            />
+            {/* Mobile menu floating container */}
+            <motion.div
+              initial={{ opacity: 0, y: -15, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -15, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="pointer-events-auto fixed top-20 left-4 right-4 rounded-3xl border border-gray-200/80 bg-white/95 p-4 shadow-2xl backdrop-blur-lg dark:border-[#2b2164]/60 dark:bg-[#0c0824]/95 md:hidden max-h-[calc(100vh-100px)] overflow-y-auto z-50"
+            >
+              <div className="space-y-1">
+                {[...navItems, ...moreItems].map((item) => {
+                  const Icon = item.icon;
+                  const isActive = activeSection === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm font-semibold transition-colors ${isActive
+                          ? "text-[#7C3AED] bg-[#F5F3FF] border border-[#DDD6FE] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white"
+                          : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-900/60"
+                        }`}
+                    >
+                      <Icon size={16} className={isActive ? "text-yellow-400 dark:text-yellow-400" : "text-gray-400"} />
+                      <span>{item.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

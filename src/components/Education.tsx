@@ -81,7 +81,7 @@ export const Education: React.FC = () => {
                       </h3>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-slate-500 dark:text-gray-400">
+                    <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-slate-600 dark:text-gray-400">
                       <span className="font-semibold text-slate-700 dark:text-gray-300">
                         {edu.institution}
                       </span>
@@ -113,11 +113,11 @@ export const Education: React.FC = () => {
                   {/* Right Side: GPA Badges (if present) */}
                   {edu.gpa && (
                     <div className="flex h-fit w-fit items-center space-x-1.5 rounded-lg bg-emerald-50/50 border border-emerald-100 px-3 py-1.5 dark:bg-emerald-950/20 dark:border-emerald-900/30">
-                      <Award size={14} className="text-emerald-600 dark:text-emerald-400" />
+                      <Award size={14} className="text-emerald-700 dark:text-emerald-400" />
                       <div className="text-right">
-                        <span className="block text-[9px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400">GPA SECURED</span>
-                        <span className="font-mono text-sm font-bold text-emerald-700 dark:text-emerald-300">
-                          {edu.gpa} <span className="text-[10px] text-emerald-500">/ {edu.gradeMax}</span>
+                        <span className="block text-[9px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400">GPA SECURED</span>
+                        <span className="font-mono text-sm font-bold text-emerald-800 dark:text-emerald-300">
+                          {edu.gpa} <span className="text-[10px] text-emerald-600 dark:text-emerald-400">/ {edu.gradeMax}</span>
                         </span>
                       </div>
                     </div>

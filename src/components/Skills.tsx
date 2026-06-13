@@ -100,7 +100,7 @@ export const Skills: React.FC = () => {
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             Modern, Industry-Standard Stack
           </h2>
-          <p className="text-base text-slate-500 dark:text-gray-400">
+          <p className="text-base text-slate-600 dark:text-gray-400">
             A comprehensive matrix of technical skill structures mapped to modern enterprise standards. No arbitrary scores, just production-level proficiency.
           </p>
         </div>
@@ -124,7 +124,7 @@ export const Skills: React.FC = () => {
         {/* GRID OF INTERESTING CARDS */}
         <motion.div
           layout
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-3 min-[375px]:grid-cols-2 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
             {getFilteredSkills().map((skill) => (
@@ -136,30 +136,30 @@ export const Skills: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
                 whileHover={{ y: -3, transition: { duration: 0.12 } }}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200/50 bg-white p-5 shadow-xs backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-lg dark:border-gray-800/40 dark:bg-gray-950/40 dark:hover:border-blue-500/30"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/50 bg-white p-4 sm:p-5 shadow-xs backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-lg dark:border-gray-800/40 dark:bg-gray-950/40 dark:hover:border-blue-500/30"
               >
                 {/* Micro hovering border glow */}
                 <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-blue-500/0 via-transparent to-blue-500/0 group-hover:from-blue-500/2 group-hover:to-cyan-500/2 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3.5">
+                <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+                  <div className="flex items-center space-x-3.5 min-w-0">
                     {/* Floating Icon Box */}
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-100 bg-slate-50 dark:border-gray-800 dark:bg-gray-900/60 transition-transform duration-200 group-hover:scale-105">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-slate-50 dark:border-gray-800 dark:bg-gray-900/60 transition-transform duration-200 group-hover:scale-105">
                       <SkillIcon iconName={skill.icon} />
                     </div>
 
-                    <div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <div className="min-w-0">
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
                         {skill.name}
                       </h4>
-                      <p className="mt-0.5 text-[10px] font-mono text-slate-500 dark:text-gray-400 uppercase tracking-widest">
+                      <p className="mt-0.5 text-[10px] font-mono text-slate-600 dark:text-gray-400 uppercase tracking-widest truncate">
                         {SKILL_CATEGORIES.find(c => c.id === skill.categoryId)?.title.split(" ")[0]}
                       </p>
                     </div>
                   </div>
 
                   {/* Proficiency Tag Label (Classmorphic pill) */}
-                  <span className={`inline-flex rounded-full border px-2.5 py-0.8 text-[10px] font-bold ${getCategoryColor(skill.categoryId)}`}>
+                  <span className={`inline-flex shrink-0 w-fit rounded-full border px-2.5 py-0.8 text-[10px] font-bold ${getCategoryColor(skill.categoryId)}`}>
                     {skill.label}
                   </span>
                 </div>

@@ -34,7 +34,7 @@ export const Activities: React.FC = () => {
               Leadership & Team Engagement
             </h2>
           </div>
-          <p className="mt-2 max-w-sm text-sm text-slate-500 dark:text-gray-400 md:mt-0">
+          <p className="mt-2 max-w-sm text-sm text-slate-600 dark:text-gray-400 md:mt-0">
             Fusing analytical algorithmic pursuits with community leadership and technical prototyping networks.
           </p>
         </div>
@@ -43,6 +43,7 @@ export const Activities: React.FC = () => {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ACTIVITIES.map((act, index) => (
             <motion.div
+              key={act.id}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -72,7 +73,7 @@ export const Activities: React.FC = () => {
                   <h3 className="font-display text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {act.title}
                   </h3>
-                  <p className="font-mono text-[10px] text-slate-500 dark:text-gray-400 font-semibold uppercase tracking-wider">
+                  <p className="font-mono text-[10px] text-slate-600 dark:text-gray-400 font-semibold uppercase tracking-wider">
                     {act.role} @ {act.organization}
                   </p>
                 </div>

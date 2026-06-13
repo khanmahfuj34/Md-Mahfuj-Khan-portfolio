@@ -98,16 +98,6 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
     link.click();
   };
 
-  const sections = [
-    { id: "hero", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Tech Stack" },
-    { id: "education", label: "Qualification" },
-    { id: "projects", label: "Projects" },
-    { id: "activities", label: "Activities" },
-    { id: "github", label: "Codebase" },
-    { id: "contact", label: "Contact" },
-  ];
 
   return (
     <section
@@ -132,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
         {stars.map((s, i) => (
           <div
             key={i}
-            className="star-twinkle absolute rounded-full bg-white"
+            className="star-twinkle absolute rounded-full bg-indigo-500/15 dark:bg-white"
             style={{
               left: `${s.x}%`,
               top: `${s.y}%`,
@@ -169,27 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
         ))}
       </div>
 
-      {/* ── Right section dots — lg+ only ── */}
-      <div className="absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-3.5 z-30">
-        {sections.map((sec) => (
-          <button
-            key={sec.id}
-            onClick={() => scrollToSection(sec.id)}
-            className="group relative flex items-center justify-end"
-            aria-label={`Go to ${sec.label}`}
-          >
-            <span className="mr-3 scale-0 rounded-full bg-white dark:bg-[#0e0a24]/90 border border-gray-200 dark:border-[#2b2164]/60 px-2.5 py-1 text-[9px] font-bold text-gray-600 dark:text-gray-300 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100 shadow-md backdrop-blur-sm whitespace-nowrap">
-              {sec.label}
-            </span>
-            <span
-              className={`block rounded-full transition-all duration-300 ${activeSection === sec.id
-                ? "h-3 w-3 bg-blue-600 dark:bg-purple-500 ring-4 ring-blue-500/25 dark:ring-purple-500/25"
-                : "h-2 w-2 bg-gray-300 dark:bg-white/25 hover:bg-gray-400 dark:hover:bg-white/60 hover:scale-125"
-                }`}
-            />
-          </button>
-        ))}
-      </div>
+
 
       {/* ── Main content ── */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 xl:px-24">
@@ -206,9 +176,9 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             className="flex flex-col gap-6 md:gap-8 text-center lg:text-left"
           >
             {/* Status badge */}
-            <div className="inline-flex mx-auto lg:mx-0 w-fit items-center gap-2 rounded-full border border-purple-500/25 bg-purple-500/10 px-4 py-1.5 backdrop-blur-sm">
-              <Sparkles size={12} className="text-purple-400 animate-pulse" />
-              <span className="text-xs font-semibold text-purple-300 tracking-wide">
+            <div className="inline-flex mx-auto lg:mx-0 w-fit items-center gap-2 rounded-full border border-purple-200 dark:border-purple-500/25 bg-purple-50/80 dark:bg-purple-500/10 px-4 py-1.5 backdrop-blur-sm">
+              <Sparkles size={12} className="text-purple-600 dark:text-purple-400 animate-pulse" />
+              <span className="text-xs font-semibold text-purple-700 dark:text-purple-300 tracking-wide">
                 Internship Ready · Open for Opportunities
               </span>
             </div>
@@ -260,7 +230,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 pt-2">
               <button
                 onClick={() => scrollToSection("contact")}
-                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-blue-600 dark:bg-purple-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 dark:shadow-purple-700/30 transition-all duration-300 hover:bg-blue-700 dark:hover:bg-purple-700 hover:shadow-blue-600/40 dark:hover:shadow-purple-600/40 active:scale-[0.97]"
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-[#ECE9F8]/80 px-8 py-3.5 text-sm font-semibold text-[#4F46E5] border border-[#D9D6F5] shadow-[0_4px_12px_rgba(79,70,229,0.08)] backdrop-blur-md transition-all duration-300 hover:bg-[#E2DEF4] hover:shadow-[0_4px_16px_rgba(79,70,229,0.12)] dark:bg-purple-600 dark:border-transparent dark:text-white dark:shadow-purple-700/30 dark:hover:bg-purple-700 dark:hover:shadow-purple-600/40 active:scale-[0.97]"
               >
                 Say Hello
                 <Send size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
@@ -268,7 +238,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
 
               <button
                 onClick={handleDownloadResume}
-                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-white/15 bg-white/80 dark:bg-white/5 px-8 py-3.5 text-sm font-semibold text-gray-700 dark:text-gray-200 backdrop-blur-sm transition-all duration-300 hover:bg-gray-50 dark:hover:bg-white/10 hover:border-gray-300 dark:hover:border-white/30 active:scale-[0.97]"
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border border-slate-200/80 dark:border-white/15 bg-white/60 dark:bg-white/5 px-8 py-3.5 text-sm font-semibold text-slate-700 dark:text-gray-200 backdrop-blur-sm transition-all duration-300 hover:bg-white/80 dark:hover:bg-white/10 hover:border-slate-350 dark:hover:border-white/30 active:scale-[0.97] shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
               >
                 <Download size={14} />
                 Download Resume
@@ -305,14 +275,14 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             className="relative flex items-center justify-center lg:justify-end"
           >
-            {/* Halo glow */}
-            <div className="absolute h-[380px] w-[380px] rounded-full blur-[100px] bg-purple-600/15 pointer-events-none" />
+              {/* Halo glow */}
+              <div className="absolute h-[380px] w-[380px] rounded-full blur-[100px] bg-purple-500/20 dark:bg-purple-600/15 pointer-events-none" />
 
             {/* Profile blob wrapper — max-w ensures it never overflows */}
             <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[450px]">
 
               {/* Gradient border blob */}
-              <div className="profile-blob p-[3px] bg-gradient-to-br from-purple-500 via-indigo-500 to-pink-500 shadow-[0_0_60px_rgba(139,92,246,0.30)]">
+              <div className="profile-blob p-[3px] bg-gradient-to-br from-purple-500 via-indigo-500 to-pink-500 shadow-[0_0_40px_rgba(139,92,246,0.15)] dark:shadow-[0_0_60px_rgba(139,92,246,0.30)]">
                 {/* Inner frame */}
                 <div className="profile-blob relative overflow-hidden bg-[#090518] w-full aspect-[5/6]">
 
@@ -343,35 +313,35 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
               </div>
 
               {/* ─ Floating stat card 1: Problem Solving (top-right) ─ */}
-              <div className="absolute -top-5 -right-4 sm:-right-6 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-slow z-20 whitespace-nowrap">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-purple-500/15 text-blue-600 dark:text-purple-400">
+              <div className="absolute -top-3 right-1 sm:-right-6 scale-90 sm:scale-100 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-slow z-20 whitespace-nowrap">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#EFF6FF] dark:bg-purple-500/15 text-blue-600 dark:text-purple-400 border border-blue-100/55 dark:border-transparent">
                   <CheckCircle size={15} />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900 dark:text-white leading-none">120+</div>
-                  <div className="text-[9px] text-slate-500 dark:text-gray-400 font-semibold mt-0.5">Problem Solving</div>
+                  <div className="text-[9px] text-slate-650 dark:text-gray-400 font-semibold mt-0.5">Problem Solving</div>
                 </div>
               </div>
 
               {/* ─ Floating stat card 2: Fresher (mid-left) ─ */}
-              <div className="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-medium z-20 whitespace-nowrap">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-purple-500/15 text-blue-600 dark:text-purple-400">
+              <div className="absolute top-[58%] -left-5 sm:-left-8 -translate-y-1/2 scale-90 sm:scale-100 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-medium z-20 whitespace-nowrap">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#F5F3FF] dark:bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-100/55 dark:border-transparent">
                   <Sparkles size={15} className="animate-pulse" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white leading-none">Fresher</div>
-                  <div className="text-[9px] text-slate-500 dark:text-gray-400 font-semibold mt-0.5">Enthusiastic Learner</div>
+                  <div className="text-[9px] text-slate-650 dark:text-gray-400 font-semibold mt-0.5">Enthusiastic Learner</div>
                 </div>
               </div>
 
               {/* ─ Floating stat card 3: Projects (bottom-right) ─ */}
-              <div className="absolute -bottom-5 -right-4 sm:-right-6 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-fast z-20 whitespace-nowrap">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-purple-500/15 text-blue-600 dark:text-purple-400">
+              <div className="absolute -bottom-3 right-1 sm:-right-6 scale-90 sm:scale-100 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-fast z-20 whitespace-nowrap">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#EFF6FF] dark:bg-purple-500/15 text-blue-600 dark:text-purple-400 border border-blue-100/55 dark:border-transparent">
                   <Briefcase size={15} />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900 dark:text-white leading-none">20+</div>
-                  <div className="text-[9px] text-slate-500 dark:text-gray-400 font-semibold mt-0.5">Finished Projects</div>
+                  <div className="text-[9px] text-slate-650 dark:text-gray-400 font-semibold mt-0.5">Finished Projects</div>
                 </div>
               </div>
             </div>
@@ -387,7 +357,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
         <button
           onClick={() => scrollToSection("about")}
-          className="flex flex-col items-center gap-1 text-gray-500 hover:text-purple-400 transition-colors duration-300"
+          className="flex flex-col items-center gap-1 text-slate-500 hover:text-purple-600 dark:text-gray-500 dark:hover:text-purple-400 transition-colors duration-300"
         >
           <span className="text-[9px] font-mono tracking-[0.2em] uppercase">Scroll</span>
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}>

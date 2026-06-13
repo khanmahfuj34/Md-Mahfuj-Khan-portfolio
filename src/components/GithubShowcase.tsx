@@ -61,10 +61,16 @@ export const GithubShowcase: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [usingFallbackRepos, setUsingFallbackRepos] = useState(false);
 
-  // ── Fetch profile via public REST API (no token needed) ──────────────────
-  const fetchProfile = async (): Promise<GithubUser | null> => {
+  // ── Fetch profile via public REST API ────────────────────────────────────
+  const fetchProfile = async (token?: string): Promise<GithubUser | null> => {
     try {
-      const res = await fetch("https://api.github.com/users/khanmahfuj34");
+      const headers: HeadersInit = {};
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+      const res = await fetch("https://api.github.com/users/khanmahfuj34", {
+        headers
+      });
       if (!res.ok) return null;
       const d = await res.json();
       return {
@@ -167,8 +173,8 @@ export const GithubShowcase: React.FC = () => {
     const token: string | undefined =
       import.meta.env.VITE_GITHUB_TOKEN || import.meta.env.GITHUB_TOKEN;
 
-    // Always fetch public profile data (no token needed)
-    const profileData = await fetchProfile();
+    // Always fetch public profile data (using token if available)
+    const profileData = await fetchProfile(token);
     setProfile(profileData);
 
     // Try GraphQL pinned repos if token exists
@@ -255,7 +261,7 @@ export const GithubShowcase: React.FC = () => {
   // ── Use real or fallback profile ──────────────────────────────────────────
   const activeUser: GithubUser = profile ?? {
     login: "khanmahfuj34",
-    avatar_url: "https://avatars.githubusercontent.com/u/104322971?v=4",
+    avatar_url: "https://avatars.githubusercontent.com/u/174784204?v=4",
     name: "Md Mahfuj Al Hossain Khan",
     bio: "Full Stack Developer | Daffodil International University | CSE",
     public_repos: 18,
@@ -287,7 +293,7 @@ export const GithubShowcase: React.FC = () => {
 
           <button
             onClick={fetchGithubDetails}
-            className="mt-3 flex items-center space-x-2 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-400 dark:hover:bg-gray-900 md:mt-0 transition-colors"
+            className="mt-3 flex items-center space-x-2 rounded-lg border border-[#DDD6FE]/80 bg-[#F5F3FF]/80 px-3.5 py-2 text-xs font-semibold text-[#7C3AED] hover:bg-[#EDE9FE] dark:border-gray-800 dark:bg-gray-950 dark:text-gray-400 dark:hover:bg-gray-900 md:mt-0 transition-colors"
           >
             <RefreshCw size={12} className={isLoading ? "animate-spin" : ""} />
             <span>Resync GitHub Stats</span>
@@ -311,7 +317,7 @@ export const GithubShowcase: React.FC = () => {
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =
-                        "https://avatars.githubusercontent.com/u/104322971?v=4";
+                        "https://avatars.githubusercontent.com/u/174784204?v=4";
                     }}
                   />
                   <div className="absolute bottom-0 right-0 h-4 w-4 rounded-full bg-emerald-500 border-2 border-white dark:border-gray-950 flex items-center justify-center">
@@ -333,7 +339,7 @@ export const GithubShowcase: React.FC = () => {
                   </a>
                 </div>
 
-                <p className="text-xs text-slate-500 dark:text-gray-400 leading-relaxed max-w-xs">
+                <p className="text-xs text-slate-655 dark:text-gray-400 leading-relaxed max-w-xs">
                   {activeUser.bio}
                 </p>
 
@@ -343,19 +349,19 @@ export const GithubShowcase: React.FC = () => {
                     <span className="block font-mono text-base font-extrabold text-slate-900 dark:text-white">
                       {activeUser.public_repos}
                     </span>
-                    <span className="text-[9px] text-slate-400 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Repositories</span>
+                    <span className="text-[9px] text-slate-500 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Repositories</span>
                   </div>
                   <div className="text-center">
                     <span className="block font-mono text-base font-extrabold text-slate-900 dark:text-white">
                       {activeUser.followers}
                     </span>
-                    <span className="text-[9px] text-slate-400 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Followers</span>
+                    <span className="text-[9px] text-slate-500 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Followers</span>
                   </div>
                   <div className="text-center">
                     <span className="block font-mono text-base font-extrabold text-slate-900 dark:text-white">
                       {activeUser.following}
                     </span>
-                    <span className="text-[9px] text-slate-400 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Following</span>
+                    <span className="text-[9px] text-slate-500 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Following</span>
                   </div>
                 </div>
               </div>
@@ -375,7 +381,7 @@ export const GithubShowcase: React.FC = () => {
                     <div key={lan.name} className="space-y-1">
                       <div className="flex items-center justify-between text-xs">
                         <span className="font-semibold text-slate-700 dark:text-gray-300">{lan.name}</span>
-                        <span className="font-mono text-[10px] text-slate-500">{lan.percent}</span>
+                        <span className="font-mono text-[10px] text-slate-600 dark:text-gray-400">{lan.percent}</span>
                       </div>
                       <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-gray-800">
                         <div className={`h-full rounded-full ${lan.cls}`} style={{ width: lan.percent }} />
@@ -430,7 +436,7 @@ export const GithubShowcase: React.FC = () => {
                       <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                     </div>
 
-                    <p className="text-xs text-slate-500 dark:text-gray-400 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed line-clamp-3">
                       {repo.description}
                     </p>
                   </div>

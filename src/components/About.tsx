@@ -84,7 +84,7 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Based In</h4>
-                  <p className="mt-0.5 text-xs text-slate-500 dark:text-gray-500">Dhaka, Bangladesh (UTC+6)</p>
+                  <p className="mt-0.5 text-xs text-slate-600 dark:text-gray-400">Dhaka, Bangladesh (UTC+6)</p>
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Education</h4>
-                  <p className="mt-0.5 text-xs text-slate-500 dark:text-gray-500">B.Sc. CSE at Daffodil Int. University</p>
+                  <p className="mt-0.5 text-xs text-slate-600 dark:text-gray-400">B.Sc. CSE at Daffodil Int. University</p>
                 </div>
               </div>
             </div>
@@ -157,7 +157,7 @@ export const About: React.FC = () => {
                   >
                     <div className="flex items-center gap-3">
                       <Icon size={13} className="text-slate-400 dark:text-gray-500" />
-                      <span className="text-xs text-slate-600 dark:text-gray-500">{label}</span>
+                      <span className="text-xs text-slate-650 dark:text-gray-400">{label}</span>
                     </div>
                     <span className="font-mono text-xs font-bold text-slate-900 dark:text-white">{value}</span>
                   </div>
