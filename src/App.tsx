@@ -48,13 +48,13 @@ function PortfolioContent() {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden text-gray-900 transition-colors duration-300 dark:text-gray-100 bg-[#080014] dark:bg-[#080014]">
+    <div className="relative min-h-screen overflow-x-hidden text-slate-900 transition-colors duration-500 dark:text-gray-100 bg-[#F8FAFC] dark:bg-[#080014]">
       {/* ── Global Background Stars ── */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
         {Array.from({ length: 60 }).map((_, i) => (
           <div
             key={i}
-            className="star-twinkle absolute rounded-full bg-white"
+            className="star-twinkle absolute rounded-full bg-blue-500/20 dark:bg-white"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,

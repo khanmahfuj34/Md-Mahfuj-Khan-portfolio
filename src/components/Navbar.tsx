@@ -91,10 +91,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           className="flex cursor-pointer items-center space-x-1 font-display text-2xl font-bold tracking-wider text-gray-900 dark:text-white"
         >
           <span className="relative">
-            <span className="absolute -left-2.5 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-full bg-purple-500 dark:bg-purple-400" />
+            <span className="absolute -left-2.5 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-full bg-blue-500 dark:bg-purple-400" />
             M
           </span>
-          <span className="text-purple-600 dark:text-purple-400">K</span>
+          <span className="text-blue-600 dark:text-purple-400">K</span>
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               onClick={() => scrollToSection(item.id)}
               className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
                 isActive
-                  ? "bg-[#181242] border border-[#2d246b]/60 text-white shadow-[0_0_12px_rgba(139,92,246,0.3)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white"
+                  ? "bg-blue-600 border border-blue-500 text-white shadow-[0_0_12px_rgba(37,99,235,0.3)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white dark:shadow-[0_0_12px_rgba(139,92,246,0.3)]"
                   : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               }`}
             >
@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               {isActive && (
                 <motion.span
                   layoutId="activeNavBackground"
-                  className="absolute inset-0 rounded-full bg-purple-500/5 -z-10"
+                  className="absolute inset-0 rounded-full bg-blue-500/5 dark:bg-purple-500/5 -z-10"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -139,7 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             onClick={() => setIsMoreOpen(!isMoreOpen)}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
               isMoreActive
-                ? "bg-[#181242] border border-[#2d246b]/60 text-white shadow-[0_0_12px_rgba(139,92,246,0.3)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white"
+                ? "bg-blue-600 border border-blue-500 text-white shadow-[0_0_12px_rgba(37,99,235,0.3)] dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white dark:shadow-[0_0_12px_rgba(139,92,246,0.3)]"
                 : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             }`}
           >
@@ -174,11 +174,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                       onClick={() => scrollToSection(item.id)}
                       className={`flex w-full items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-left text-xs font-medium transition-colors ${
                         isActive
-                          ? "bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300"
+                          ? "bg-blue-50 text-blue-700 dark:bg-purple-950/40 dark:text-purple-300"
                           : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-900/60"
                       }`}
                     >
-                      <Icon size={14} className={isActive ? "text-purple-600 dark:text-purple-400" : "text-gray-400"} />
+                      <Icon size={14} className={isActive ? "text-blue-600 dark:text-purple-400" : "text-gray-400"} />
                       <span>{item.label}</span>
                     </button>
                   );
@@ -194,7 +194,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         {/* THEME TOGGLE (Sun/Moon in glowing circle) */}
         <button
           onClick={toggleTheme}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/25 bg-white/80 text-gray-700 shadow-md transition-all duration-300 hover:scale-105 active:scale-95 dark:border-[#382b8a]/50 dark:bg-[#0e0a24]/90 dark:text-yellow-400 dark:shadow-[0_0_15px_rgba(139,92,246,0.15)] dark:hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] dark:hover:border-purple-500/50"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-500/25 bg-white/80 text-gray-700 shadow-md transition-all duration-300 hover:scale-105 active:scale-95 hover:border-blue-500/50 dark:border-[#382b8a]/50 dark:bg-[#0e0a24]/90 dark:text-yellow-400 dark:shadow-[0_0_15px_rgba(139,92,246,0.15)] dark:hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] dark:hover:border-purple-500/50"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? <Sun size={18} className="animate-spin-slow" /> : <Moon size={18} />}
@@ -230,11 +230,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     onClick={() => scrollToSection(item.id)}
                     className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm font-semibold transition-colors ${
                       isActive
-                        ? "bg-[#181242] border border-[#2d246b]/60 text-white dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white"
+                        ? "bg-blue-600 border border-blue-500 text-white dark:bg-[#16103c] dark:border-[#332782]/80 dark:text-white"
                         : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-900/60"
                     }`}
                   >
-                    <Icon size={16} className={isActive ? "text-yellow-500 dark:text-yellow-400" : "text-gray-400"} />
+                    <Icon size={16} className={isActive ? "text-yellow-400 dark:text-yellow-400" : "text-gray-400"} />
                     <span>{item.label}</span>
                   </button>
                 );

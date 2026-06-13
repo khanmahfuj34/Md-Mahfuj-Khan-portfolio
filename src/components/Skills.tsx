@@ -85,7 +85,7 @@ export const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="relative bg-gray-50/50 py-20 transition-colors duration-300 dark:bg-gray-900/40"
+      className="relative bg-slate-50/50 py-20 transition-colors duration-300 dark:bg-gray-900/40"
     >
       <div className="absolute left-0 bottom-0 h-64 w-64 rounded-full bg-blue-500/5 blur-[100px] pointer-events-none" />
 
@@ -97,10 +97,10 @@ export const Skills: React.FC = () => {
             <span className="h-1 w-6 rounded-full bg-blue-600 dark:bg-blue-400" />
             <span className="font-mono text-xs font-semibold tracking-wider uppercase">02 / Technical Spectrum</span>
           </div>
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             Modern, Industry-Standard Stack
           </h2>
-          <p className="text-base text-gray-500 dark:text-gray-400">
+          <p className="text-base text-slate-500 dark:text-gray-400">
             A comprehensive matrix of technical skill structures mapped to modern enterprise standards. No arbitrary scores, just production-level proficiency.
           </p>
         </div>
@@ -113,7 +113,7 @@ export const Skills: React.FC = () => {
               onClick={() => setActiveCategory(cat.id)}
               className={`rounded-full px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semi-bold transition-all duration-300 cursor-pointer ${activeCategory === cat.id
                 ? "bg-blue-600 text-white shadow-lg shadow-blue-500/40 dark:bg-blue-500 scale-105 ring-2 ring-blue-500/30 ring-offset-2 dark:ring-offset-gray-900"
-                : "border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md hover:scale-[1.02] dark:border-gray-800 dark:bg-gray-950/80 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white"
+                : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:shadow-md hover:scale-[1.02] dark:border-gray-800 dark:bg-gray-950/80 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white"
                 }`}
             >
               {cat.label}
@@ -136,7 +136,7 @@ export const Skills: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
                 whileHover={{ y: -3, transition: { duration: 0.12 } }}
-                className="group relative overflow-hidden rounded-2xl border border-gray-200/50 bg-white p-5 shadow-xs backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-lg dark:border-gray-800/40 dark:bg-gray-950/40 dark:hover:border-blue-500/30"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/50 bg-white p-5 shadow-xs backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-lg dark:border-gray-800/40 dark:bg-gray-950/40 dark:hover:border-blue-500/30"
               >
                 {/* Micro hovering border glow */}
                 <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-blue-500/0 via-transparent to-blue-500/0 group-hover:from-blue-500/2 group-hover:to-cyan-500/2 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -144,15 +144,15 @@ export const Skills: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3.5">
                     {/* Floating Icon Box */}
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/60 transition-transform duration-200 group-hover:scale-105">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-100 bg-slate-50 dark:border-gray-800 dark:bg-gray-900/60 transition-transform duration-200 group-hover:scale-105">
                       <SkillIcon iconName={skill.icon} />
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {skill.name}
                       </h4>
-                      <p className="mt-0.5 text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                      <p className="mt-0.5 text-[10px] font-mono text-slate-500 dark:text-gray-400 uppercase tracking-widest">
                         {SKILL_CATEGORIES.find(c => c.id === skill.categoryId)?.title.split(" ")[0]}
                       </p>
                     </div>
@@ -172,15 +172,15 @@ export const Skills: React.FC = () => {
         </motion.div>
 
         {/* Soft Skills Quick Accent Footer */}
-        <div className="mt-12 rounded-2xl border border-dashed border-gray-200 bg-white/40 p-6 text-center dark:border-gray-800 dark:bg-gray-950/20">
-          <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-300 uppercase tracking-wider mb-3">
+        <div className="mt-12 rounded-2xl border border-dashed border-slate-200 bg-white/40 p-6 text-center dark:border-gray-800 dark:bg-gray-950/20">
+          <h4 className="text-sm font-semibold text-slate-800 dark:text-gray-300 uppercase tracking-wider mb-3">
             Core Behavioral Strengths
           </h4>
           <div className="flex flex-wrap justify-center gap-2.5">
             {["Active Listening", "Adaptive Professional Communication", "Team & Task Leadership", "Algorithmic Problem-Solving", "Strategic Time Management"].map((item) => (
               <span
                 key={item}
-                className="rounded-full bg-gray-50 border border-gray-200/50 px-3 py-1 text-xs font-medium text-gray-600 dark:bg-gray-900/30 dark:border-gray-800 dark:text-gray-400"
+                className="rounded-full bg-slate-50 border border-slate-200/50 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-gray-900/30 dark:border-gray-800 dark:text-gray-400"
               >
                 ● {item}
               </span>

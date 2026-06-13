@@ -145,8 +145,8 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
       </div>
 
       {/* ── Ambient orbs ── */}
-      <div className="pointer-events-none absolute top-1/4 left-0 h-[500px] w-[500px] rounded-full bg-purple-700/10 blur-[160px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-indigo-800/10 blur-[160px]" />
+      <div className="pointer-events-none absolute top-1/4 left-0 h-[500px] w-[500px] rounded-full bg-blue-400/20 dark:bg-purple-700/10 blur-[160px]" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-indigo-300/20 dark:bg-indigo-800/10 blur-[160px]" />
 
       {/* ── Left social bar — md+ only ── */}
       <div className="absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3 z-30">
@@ -161,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${label} Profile`}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-gray-300 transition-all duration-300 hover:scale-110 hover:text-white hover:border-white/25 hover:bg-white/10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white/50 dark:border-white/10 dark:bg-white/5 backdrop-blur-sm text-gray-600 dark:text-gray-300 transition-all duration-300 hover:scale-110 hover:text-blue-600 dark:hover:text-white hover:border-blue-200 dark:hover:border-white/25 hover:bg-white dark:hover:bg-white/10"
             style={{ "--hover-color": color } as React.CSSProperties}
           >
             <Icon size={16} />
@@ -178,13 +178,13 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             className="group relative flex items-center justify-end"
             aria-label={`Go to ${sec.label}`}
           >
-            <span className="mr-3 scale-0 rounded-full bg-[#0e0a24]/90 border border-[#2b2164]/60 px-2.5 py-1 text-[9px] font-bold text-gray-300 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100 shadow-md backdrop-blur-sm whitespace-nowrap">
+            <span className="mr-3 scale-0 rounded-full bg-white dark:bg-[#0e0a24]/90 border border-gray-200 dark:border-[#2b2164]/60 px-2.5 py-1 text-[9px] font-bold text-gray-600 dark:text-gray-300 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100 shadow-md backdrop-blur-sm whitespace-nowrap">
               {sec.label}
             </span>
             <span
               className={`block rounded-full transition-all duration-300 ${activeSection === sec.id
-                ? "h-3 w-3 bg-purple-500 ring-4 ring-purple-500/25"
-                : "h-2 w-2 bg-white/25 hover:bg-white/60 hover:scale-125"
+                ? "h-3 w-3 bg-blue-600 dark:bg-purple-500 ring-4 ring-blue-500/25 dark:ring-purple-500/25"
+                : "h-2 w-2 bg-gray-300 dark:bg-white/25 hover:bg-gray-400 dark:hover:bg-white/60 hover:scale-125"
                 }`}
             />
           </button>
@@ -215,12 +215,12 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
 
             {/* Heading group */}
             <div className="flex flex-col gap-3">
-              <span className="font-display text-base sm:text-lg font-medium text-gray-400">
+              <span className="font-display text-base sm:text-lg font-medium text-gray-600 dark:text-gray-400">
                 Hey, I'm 👋
               </span>
 
               <h1
-                className="font-display font-extrabold tracking-tight text-white leading-[1.2]"
+                className="font-display font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.2]"
                 style={{ fontSize: "clamp(2.4rem, 6vw, 5rem)" }}
               >
                 {PERSONAL_INFO.name}
@@ -229,11 +229,11 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
               {/* Typing subtitle */}
               <div className="flex items-center justify-center lg:justify-start gap-1 min-h-[2.25rem]">
                 <span
-                  className="font-display font-bold text-gray-200"
+                  className="font-display font-bold text-gray-800 dark:text-gray-200"
                   style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)" }}
                 >
                   I am a{" "}
-                  <span className="text-purple-400 border-r-2 border-purple-400 pr-0.5 animate-pulse">
+                  <span className="text-blue-600 dark:text-purple-400 border-r-2 border-blue-600 dark:border-purple-400 pr-0.5 animate-pulse">
                     {currentText}
                   </span>
                 </span>
@@ -241,7 +241,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             </div>
 
             {/* Taglines */}
-            <div className="flex flex-col gap-1.5 text-gray-400">
+            <div className="flex flex-col gap-1.5 text-gray-600 dark:text-gray-400">
               <p
                 className="flex items-center justify-center lg:justify-start gap-2 font-medium"
                 style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)" }}
@@ -252,7 +252,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
                 className="flex items-center justify-center lg:justify-start gap-2 opacity-70"
                 style={{ fontSize: "clamp(0.8rem, 1.3vw, 0.9rem)" }}
               >
-                <span className="text-purple-500">|</span> Available for projects and collaborations ☀️
+                <span className="text-blue-500 dark:text-purple-500">|</span> Available for projects and collaborations ☀️
               </p>
             </div>
 
@@ -260,7 +260,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 pt-2">
               <button
                 onClick={() => scrollToSection("contact")}
-                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-purple-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-700/30 transition-all duration-300 hover:bg-purple-700 hover:shadow-purple-600/40 active:scale-[0.97]"
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-blue-600 dark:bg-purple-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 dark:shadow-purple-700/30 transition-all duration-300 hover:bg-blue-700 dark:hover:bg-purple-700 hover:shadow-blue-600/40 dark:hover:shadow-purple-600/40 active:scale-[0.97]"
               >
                 Say Hello
                 <Send size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
@@ -268,7 +268,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
 
               <button
                 onClick={handleDownloadResume}
-                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-[0.97]"
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-white/15 bg-white/80 dark:bg-white/5 px-8 py-3.5 text-sm font-semibold text-gray-700 dark:text-gray-200 backdrop-blur-sm transition-all duration-300 hover:bg-gray-50 dark:hover:bg-white/10 hover:border-gray-300 dark:hover:border-white/30 active:scale-[0.97]"
               >
                 <Download size={14} />
                 Download Resume
@@ -288,7 +288,7 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition-all hover:border-white/25 hover:bg-white/10 hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 dark:border-white/10 bg-white/80 dark:bg-white/5 text-gray-600 dark:text-gray-300 transition-all hover:border-gray-300 dark:hover:border-white/25 hover:bg-gray-50 dark:hover:bg-white/10 hover:text-blue-600 dark:hover:text-white"
                 >
                   <Icon size={16} />
                 </a>
@@ -344,34 +344,34 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
 
               {/* ─ Floating stat card 1: Problem Solving (top-right) ─ */}
               <div className="absolute -top-5 -right-4 sm:-right-6 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-slow z-20 whitespace-nowrap">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-500/15 text-purple-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-purple-500/15 text-blue-600 dark:text-purple-400">
                   <CheckCircle size={15} />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white leading-none">120+</div>
-                  <div className="text-[9px] text-gray-400 font-semibold mt-0.5">Problem Solving</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white leading-none">120+</div>
+                  <div className="text-[9px] text-slate-500 dark:text-gray-400 font-semibold mt-0.5">Problem Solving</div>
                 </div>
               </div>
 
               {/* ─ Floating stat card 2: Fresher (mid-left) ─ */}
               <div className="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-medium z-20 whitespace-nowrap">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-500/15 text-purple-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-purple-500/15 text-blue-600 dark:text-purple-400">
                   <Sparkles size={15} className="animate-pulse" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white leading-none">Fresher</div>
-                  <div className="text-[9px] text-gray-400 font-semibold mt-0.5">Enthusiastic Learner</div>
+                  <div className="text-xs font-bold text-slate-900 dark:text-white leading-none">Fresher</div>
+                  <div className="text-[9px] text-slate-500 dark:text-gray-400 font-semibold mt-0.5">Enthusiastic Learner</div>
                 </div>
               </div>
 
               {/* ─ Floating stat card 3: Projects (bottom-right) ─ */}
               <div className="absolute -bottom-5 -right-4 sm:-right-6 glass-card rounded-2xl px-3 py-2.5 flex items-center gap-2.5 animate-float-fast z-20 whitespace-nowrap">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-500/15 text-purple-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-purple-500/15 text-blue-600 dark:text-purple-400">
                   <Briefcase size={15} />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white leading-none">20+</div>
-                  <div className="text-[9px] text-gray-400 font-semibold mt-0.5">Finished Projects</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white leading-none">20+</div>
+                  <div className="text-[9px] text-slate-500 dark:text-gray-400 font-semibold mt-0.5">Finished Projects</div>
                 </div>
               </div>
             </div>

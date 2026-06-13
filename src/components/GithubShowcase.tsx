@@ -202,46 +202,46 @@ export const GithubShowcase: React.FC = () => {
   // ── Language color helper ─────────────────────────────────────────────────
   const getLanguageColor = (lang: string): string => {
     switch (lang?.toLowerCase()) {
-      case "javascript":  return "bg-yellow-400";
-      case "typescript":  return "bg-blue-500";
-      case "html":        return "bg-orange-500";
-      case "css":         return "bg-purple-500";
-      case "python":      return "bg-green-500";
-      case "java":        return "bg-red-500";
-      case "go":          return "bg-cyan-500";
-      case "rust":        return "bg-orange-700";
-      default:            return "bg-emerald-500";
+      case "javascript": return "bg-yellow-400";
+      case "typescript": return "bg-blue-500";
+      case "html": return "bg-orange-500";
+      case "css": return "bg-purple-500";
+      case "python": return "bg-green-500";
+      case "java": return "bg-red-500";
+      case "go": return "bg-cyan-500";
+      case "rust": return "bg-orange-700";
+      default: return "bg-emerald-500";
     }
   };
 
   // ── Loading skeleton ──────────────────────────────────────────────────────
   if (isLoading) {
     return (
-      <section id="github" className="relative bg-gray-50/50 py-20 transition-colors duration-300 dark:bg-gray-900/40">
+      <section id="github" className="relative bg-slate-50/50 py-20 transition-colors duration-300 dark:bg-gray-900/40">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between">
             <div className="space-y-3">
-              <div className="h-4 w-36 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
-              <div className="h-8 w-64 rounded-xl bg-gray-200 dark:bg-gray-800 animate-pulse" />
+              <div className="h-4 w-36 rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
+              <div className="h-8 w-64 rounded-xl bg-slate-200 dark:bg-gray-800 animate-pulse" />
             </div>
           </div>
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-4 space-y-4">
-              <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950/40 p-6 space-y-4">
+              <div className="rounded-2xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-gray-950/40 p-6 space-y-4">
                 <div className="flex flex-col items-center space-y-4">
-                  <div className="h-20 w-20 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
-                  <div className="h-4 w-40 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
-                  <div className="h-3 w-28 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
+                  <div className="h-20 w-20 rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
+                  <div className="h-4 w-40 rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
+                  <div className="h-3 w-28 rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
                 </div>
               </div>
             </div>
             <div className="lg:col-span-8">
               <div className="grid gap-4 sm:grid-cols-2">
                 {[...Array(4)].map((_, i) => (
-                  <div key={i} className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950/20 p-5 space-y-3">
-                    <div className="h-4 w-32 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
-                    <div className="h-3 w-full rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
-                    <div className="h-3 w-4/5 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
+                  <div key={i} className="rounded-2xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-gray-950/20 p-5 space-y-3">
+                    <div className="h-4 w-32 rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
+                    <div className="h-3 w-full rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
+                    <div className="h-3 w-4/5 rounded-full bg-slate-200 dark:bg-gray-800 animate-pulse" />
                   </div>
                 ))}
               </div>
@@ -267,7 +267,7 @@ export const GithubShowcase: React.FC = () => {
   return (
     <section
       id="github"
-      className="relative bg-gray-50/50 py-20 transition-colors duration-300 dark:bg-gray-900/40"
+      className="relative bg-slate-50/50 py-20 transition-colors duration-300 dark:bg-gray-900/40"
     >
       <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
 
@@ -280,14 +280,14 @@ export const GithubShowcase: React.FC = () => {
               <span className="h-1 w-6 rounded-full bg-blue-600 dark:bg-blue-400" />
               <span className="font-mono text-xs font-semibold tracking-wider uppercase">06 / Live Repositories</span>
             </div>
-            <h2 className="font-display text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
               Open Source Codebase
             </h2>
           </div>
 
           <button
             onClick={fetchGithubDetails}
-            className="mt-3 flex items-center space-x-2 rounded-lg border border-gray-200 bg-white px-3.5 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-400 dark:hover:bg-gray-900 md:mt-0 transition-colors"
+            className="mt-3 flex items-center space-x-2 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-400 dark:hover:bg-gray-900 md:mt-0 transition-colors"
           >
             <RefreshCw size={12} className={isLoading ? "animate-spin" : ""} />
             <span>Resync GitHub Stats</span>
@@ -299,7 +299,7 @@ export const GithubShowcase: React.FC = () => {
 
           {/* LEFT PANEL: PROFILE SUMMARY */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-xs backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/40">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/40">
 
               <div className="flex flex-col items-center text-center space-y-4">
                 {/* Avatar */}
@@ -320,7 +320,7 @@ export const GithubShowcase: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-display text-base font-bold text-gray-950 dark:text-white">
+                  <h3 className="font-display text-base font-bold text-slate-900 dark:text-white">
                     {activeUser.name}
                   </h3>
                   <a
@@ -333,36 +333,36 @@ export const GithubShowcase: React.FC = () => {
                   </a>
                 </div>
 
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed max-w-xs">
+                <p className="text-xs text-slate-500 dark:text-gray-400 leading-relaxed max-w-xs">
                   {activeUser.bio}
                 </p>
 
                 {/* Counter blocks */}
-                <div className="grid grid-cols-3 gap-1.5 w-full border-t border-gray-100 pt-5 dark:border-gray-800">
+                <div className="grid grid-cols-3 gap-1.5 w-full border-t border-slate-100 pt-5 dark:border-gray-800">
                   <div className="text-center">
-                    <span className="block font-mono text-base font-extrabold text-gray-900 dark:text-white">
+                    <span className="block font-mono text-base font-extrabold text-slate-900 dark:text-white">
                       {activeUser.public_repos}
                     </span>
-                    <span className="text-[9px] text-gray-400 uppercase tracking-wider block mt-0.5">Repositories</span>
+                    <span className="text-[9px] text-slate-400 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Repositories</span>
                   </div>
                   <div className="text-center">
-                    <span className="block font-mono text-base font-extrabold text-gray-900 dark:text-white">
+                    <span className="block font-mono text-base font-extrabold text-slate-900 dark:text-white">
                       {activeUser.followers}
                     </span>
-                    <span className="text-[9px] text-gray-400 uppercase tracking-wider block mt-0.5">Followers</span>
+                    <span className="text-[9px] text-slate-400 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Followers</span>
                   </div>
                   <div className="text-center">
-                    <span className="block font-mono text-base font-extrabold text-gray-900 dark:text-white">
+                    <span className="block font-mono text-base font-extrabold text-slate-900 dark:text-white">
                       {activeUser.following}
                     </span>
-                    <span className="text-[9px] text-gray-400 uppercase tracking-wider block mt-0.5">Following</span>
+                    <span className="text-[9px] text-slate-400 dark:text-gray-400 uppercase tracking-wider block mt-0.5">Following</span>
                   </div>
                 </div>
               </div>
 
               {/* Codebase composition */}
-              <div className="mt-8 pt-5 border-t border-gray-100 dark:border-gray-800">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-800 dark:text-gray-300 mb-4">
+              <div className="mt-8 pt-5 border-t border-slate-100 dark:border-gray-800">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-gray-300 mb-4">
                   Codebase Composition Share
                 </h4>
                 <div className="space-y-3.5">
@@ -374,10 +374,10 @@ export const GithubShowcase: React.FC = () => {
                   ].map((lan) => (
                     <div key={lan.name} className="space-y-1">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-gray-700 dark:text-gray-300">{lan.name}</span>
-                        <span className="font-mono text-[10px] text-gray-500">{lan.percent}</span>
+                        <span className="font-semibold text-slate-700 dark:text-gray-300">{lan.name}</span>
+                        <span className="font-mono text-[10px] text-slate-500">{lan.percent}</span>
                       </div>
-                      <div className="h-1.5 w-full rounded-full bg-gray-100 dark:bg-gray-800">
+                      <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-gray-800">
                         <div className={`h-full rounded-full ${lan.cls}`} style={{ width: lan.percent }} />
                       </div>
                     </div>
@@ -392,7 +392,7 @@ export const GithubShowcase: React.FC = () => {
               href={activeUser.html_url}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center justify-between rounded-xl bg-gray-900 p-4 font-display text-xs font-semibold text-white shadow-md hover:opacity-90 dark:bg-white dark:text-gray-950 transition-opacity"
+              className="group flex items-center justify-between rounded-xl bg-slate-900 p-4 font-display text-xs font-semibold text-white shadow-md hover:opacity-90 dark:bg-white dark:text-gray-950 transition-opacity"
             >
               <div className="flex items-center space-x-2">
                 <Github size={15} />
@@ -403,7 +403,7 @@ export const GithubShowcase: React.FC = () => {
 
             {/* Subtle note when showing featured repos */}
             {usingFallbackRepos && (
-              <p className="text-center text-[10px] font-mono text-gray-400 dark:text-gray-600">
+              <p className="text-center text-[10px] font-mono text-slate-400 dark:text-gray-600">
                 Showing featured repositories
               </p>
             )}
@@ -419,28 +419,28 @@ export const GithubShowcase: React.FC = () => {
                   rel="noreferrer"
                   whileHover={{ y: -3 }}
                   key={`${repo.name}-${idx}`}
-                  className="group relative flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-5 shadow-xs transition-all hover:border-blue-500/30 hover:shadow-md dark:border-gray-800 dark:bg-gray-950/20"
+                  className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all hover:border-blue-500/30 hover:shadow-md dark:border-gray-800 dark:bg-gray-950/20"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 font-display text-sm font-bold text-gray-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <div className="flex items-center gap-2 font-display text-sm font-bold text-slate-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         <FolderHeart size={14} className="text-blue-500 shrink-0" />
                         <span className="truncate">{repo.name}</span>
                       </div>
                       <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                     </div>
 
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-500 dark:text-gray-400 leading-relaxed line-clamp-3">
                       {repo.description}
                     </p>
                   </div>
 
                   {/* Footer statistics */}
-                  <div className="mt-5 flex items-center justify-between border-t border-gray-100 pt-3 dark:border-gray-800 font-mono text-[10px] text-gray-400">
+                  <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 dark:border-gray-800 font-mono text-[10px] text-slate-400">
                     {/* Language */}
                     <div className="flex items-center space-x-1.5">
                       <span className={`h-2.5 w-2.5 rounded-full ${getLanguageColor(repo.language)}`} />
-                      <span className="text-gray-600 dark:text-gray-300 font-semibold">
+                      <span className="text-slate-600 dark:text-gray-300 font-semibold">
                         {repo.language || "TypeScript"}
                       </span>
                     </div>

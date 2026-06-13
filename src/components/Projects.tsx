@@ -93,9 +93,9 @@ export const Projects: React.FC = () => {
                 {/* PROJECT STATS CARDS */}
                 <div className="grid grid-cols-3 gap-3">
                   {activeProject.stats.map((stat) => (
-                    <div key={stat.label} className="rounded-xl border border-gray-100 bg-gray-50/50 p-3 text-center dark:border-gray-900 dark:bg-gray-900/30">
-                      <p className="font-display text-xs font-bold text-gray-900 dark:text-white">{stat.value}</p>
-                      <p className="mt-0.5 text-[9px] text-gray-400 uppercase tracking-wider">{stat.label}</p>
+                    <div key={stat.label} className="rounded-xl border border-slate-200 bg-slate-50/50 p-3 text-center dark:border-gray-900 dark:bg-gray-900/30">
+                      <p className="font-display text-xs font-bold text-slate-900 dark:text-white">{stat.value}</p>
+                      <p className="mt-0.5 text-[9px] text-slate-500 uppercase tracking-wider">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -109,7 +109,7 @@ export const Projects: React.FC = () => {
                     {[...activeProject.frontendTech, ...activeProject.backendTech, ...activeProject.databaseTech, ...activeProject.additionalTech].map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-md bg-white border border-gray-150 px-2 py-0.8 text-[11px] font-medium text-gray-700 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300"
+                        className="rounded-md bg-white border border-slate-200 px-2 py-0.8 text-[11px] font-medium text-slate-700 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300"
                       >
                         {tech}
                       </span>
@@ -118,11 +118,11 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* ARCHITECTURE SUMMARY */}
-                <div className="rounded-xl border border-gray-150 bg-gray-50/20 p-4 dark:border-gray-900 dark:bg-gray-900/10">
+                <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-4 dark:border-gray-900 dark:bg-gray-900/10">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold mb-1">
                     System Architecture
                   </p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                  <p className="text-xs text-slate-600 dark:text-gray-400">
                     {activeProject.architecture}
                   </p>
                 </div>
@@ -171,7 +171,7 @@ export const Projects: React.FC = () => {
                     href={activeProject.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center space-x-2 rounded-xl border border-gray-200 bg-white px-4.5 py-2.8 text-xs font-bold text-gray-700 hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
+                    className="flex items-center space-x-2 rounded-xl border border-slate-200 bg-white px-4.5 py-2.8 text-xs font-bold text-slate-700 hover:bg-slate-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
                   >
                     <Github size={14} />
                     <span>Source Repository</span>
