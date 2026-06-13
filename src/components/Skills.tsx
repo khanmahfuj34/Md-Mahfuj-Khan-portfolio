@@ -103,14 +103,14 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* FILTER CONTROL NAV */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`rounded-full px-4 py-1.8 text-xs font-semibold transition-all duration-150 cursor-pointer ${activeCategory === cat.id
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/15 dark:bg-blue-500"
-                  : "border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-300 dark:hover:bg-gray-900"
+              className={`rounded-full px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semi-bold transition-all duration-300 cursor-pointer ${activeCategory === cat.id
+                ? "bg-blue-600 text-white shadow-lg shadow-blue-500/40 dark:bg-blue-500 scale-105 ring-2 ring-blue-500/30 ring-offset-2 dark:ring-offset-gray-900"
+                : "border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md hover:scale-[1.02] dark:border-gray-800 dark:bg-gray-950/80 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white"
                 }`}
             >
               {cat.label}
