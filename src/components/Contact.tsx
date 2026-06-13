@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Github, Linkedin, Send, Sparkles, AlertCircle, CheckCircle } from "lucide-react";
 import { motion } from "motion/react";
+import emailjs from '@emailjs/browser';
 import { PERSONAL_INFO } from "../data";
 
 export const Contact: React.FC = () => {
@@ -12,6 +13,7 @@ export const Contact: React.FC = () => {
   });
   
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,20 +27,56 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
+    setErrorMessage("");
+    
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setErrorMessage("Please ensure all required fields are filled.");
+      setStatus("error");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage("Please enter a valid email address.");
       setStatus("error");
       return;
     }
 
     setStatus("submitting");
 
-    // Simulate delightful api server latency before rendering a beautiful success frame
-    setTimeout(() => {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS configuration is missing in environment variables.");
+      setErrorMessage("Failed to send message. Please try again.");
+      setStatus("error");
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        publicKey
+      );
+
       setStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1500);
+    } catch (error) {
+      console.error("Failed to send email via EmailJS:", error);
+      setErrorMessage("Failed to send message. Please try again.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -85,6 +123,7 @@ export const Contact: React.FC = () => {
                   <div className="flex-1">
                     <span className="block text-[10px] font-mono uppercase tracking-widest text-gray-400">Email Address</span>
                     <button
+                      type="button"
                       onClick={() => handleCopyValue(PERSONAL_INFO.email, "Email")}
                       className="mt-0.5 text-sm font-semibold text-gray-800 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 text-left cursor-pointer"
                     >
@@ -104,6 +143,7 @@ export const Contact: React.FC = () => {
                   <div className="flex-1">
                     <span className="block text-[10px] font-mono uppercase tracking-widest text-gray-400">Direct Whatsapp / Mob</span>
                     <button
+                      type="button"
                       onClick={() => handleCopyValue(PERSONAL_INFO.phone, "Phone")}
                       className="mt-0.5 text-sm font-semibold text-gray-800 hover:text-emerald-600 dark:text-gray-200 dark:hover:text-emerald-400 text-left cursor-pointer"
                     >
@@ -185,10 +225,10 @@ export const Contact: React.FC = () => {
                     <CheckCircle size={32} />
                   </div>
                   <h3 className="font-display text-xl font-bold text-gray-950 dark:text-white">
-                    Message Dispatched Successfully!
+                    Message sent successfully.
                   </h3>
                   <p className="max-w-md mx-auto text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    Thank you for coordinating, Md Mahfuj Al Hossain Khan will receive your submission directly in mock transit logs. An active response window takes 4-12 hours!
+                    Thank you for coordinating, Md Mahfuj Al Hossain Khan will receive your submission directly. An active response window takes 4-12 hours!
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
@@ -199,12 +239,12 @@ export const Contact: React.FC = () => {
                 </motion.div>
               ) : (
                 /* INTERACTIVE FORM SCHEMA */
-                <form onSubmit={handleFormSubmit} className="space-y-4">
+                <form onSubmit={handleFormSubmit} className="space-y-4" noValidate>
                   
                   {status === "error" && (
                     <div className="flex items-center space-x-2 rounded-xl bg-red-50 p-3 text-xs text-red-650 border border-red-100 dark:bg-red-950/20 dark:border-red-900/30 dark:text-red-400 animate-shake">
-                      <AlertCircle size={14} />
-                      <span>Please ensure all key form elements (Name, Email, Message) are compiled fully.</span>
+                      <AlertCircle size={14} className="shrink-0" />
+                      <span>{errorMessage}</span>
                     </div>
                   )}
 
@@ -245,7 +285,7 @@ export const Contact: React.FC = () => {
                   {/* Subject block */}
                   <div className="space-y-1.5">
                     <label className="text-[10px] font-mono uppercase tracking-wider text-gray-400 font-bold block">
-                      Subject
+                      Subject <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -254,6 +294,7 @@ export const Contact: React.FC = () => {
                       onChange={handleInputChange}
                       placeholder="Internship Proposal / Project Discussion"
                       className="w-full rounded-xl border border-gray-200 bg-gray-50/20 px-4 py-2.8 text-xs text-gray-950 outline-none transition-all focus:border-blue-500/50 focus:bg-white dark:border-gray-800 dark:bg-gray-900/20 dark:text-white dark:focus:border-blue-500/50"
+                      required
                     />
                   </div>
 
@@ -280,7 +321,7 @@ export const Contact: React.FC = () => {
                     className="group flex w-full items-center justify-center space-x-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50 select-none cursor-pointer"
                   >
                     <Send size={14} className={status === "submitting" ? "animate-pulse" : ""} />
-                    <span>{status === "submitting" ? "Transmitting..." : "Submit Coordination"}</span>
+                    <span>{status === "submitting" ? "Sending..." : "Submit Coordination"}</span>
                   </button>
 
                   <p className="text-[10px] font-mono text-center text-gray-400 pt-1">

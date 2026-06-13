@@ -92,9 +92,10 @@ export const Hero: React.FC<HeroProps> = ({ activeSection = "hero" }) => {
   };
 
   const handleDownloadResume = () => {
-    alert(
-      `Md Mahfuj Al Hossain Khan\nFull Stack Developer\nmkmahfujkhanms@gmail.com\n+8801622730166\nDaffodil International University (CSE, 2022–Present)`
-    );
+    const link = document.createElement("a");
+    link.href = "/resume/Mahfuj_Khan_CV_fweb.pdf";
+    link.download = "Mahfuj_Khan_Resume.pdf";
+    link.click();
   };
 
   const sections = [

@@ -92,66 +92,7 @@ export const PROJECTS: Project[] = [
     ],
     accentColor: "from-blue-600 to-cyan-500"
   },
-  {
-    id: "triplance",
-    title: "Triplance",
-    subtitle: "Social Travel & Booking Platform",
-    type: "Backend / Defense Project",
-    description: "An innovative, full-scale tour management portal combining an online booking database system, user social feeds, and local SSLCommerz payment portals.",
-    longDescription: "Triplance is an advanced hybrid travel platform that blends immersive tour coordination, localized ecommerce checkout workflows, and user content feeds together. Created to fulfill specific security and high-transaction defence project standards, it implements complete travel tracking from booking to social feedback cycles.",
-    frontendTech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-    backendTech: ["Node.js", "Express.js"],
-    databaseTech: ["PostgreSQL", "Prisma ORM"],
-    additionalTech: ["SSLCommerz", "Cloudinary SDK", "JWT", "Postman"],
-    challenges: [
-      "Complex schema queries across many-to-many booking models.",
-      "Safe and scalable direct file and image uploads to Cloudinary storage buckets.",
-      "Connecting local market payment channels using the SSLCommerz gateway."
-    ],
-    solutions: [
-      "Designed and indexed relational PostgreSQL schemas using Prisma ORM to efficiently run join clauses without table freezes.",
-      "Designed an direct server-side secure pass-through stream pipeline for profile and post graphics bypass-upload.",
-      "Engineered clean state transaction redirect handlers validating custom checksum keys from payment response notifications."
-    ],
-    architecture: "Relational database application utilizing a type-safe ORM on a highly responsive Next.js runtime environment.",
-    github: "https://github.com/khanmahfuj34",
-    live: "https://github.com/khanmahfuj34",
-    stats: [
-      { label: "Query Speed-up", value: "40%" },
-      { label: "API Validation Coverage", value: "100%" },
-      { label: "Asset Delivery", value: "CDN Cloudinary" }
-    ],
-    accentColor: "from-purple-600 to-pink-500"
-  },
-  {
-    id: "swiftcart",
-    title: "SwiftCart",
-    subtitle: "Modern E-commerce Portal",
-    type: "E-Commerce Application",
-    description: "A snappy, gorgeous ecommerce application equipped with intuitive client UI controls, cart operations, query-based search filters, and catalog listings.",
-    longDescription: "SwiftCart provides a smooth, highly responsive retail storefront designed with modern desktop usability. It features a complete product searching index, active interactive cart session managers, product category pages, and full user authorization flows.",
-    frontendTech: ["React.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    backendTech: ["Node.js", "Express.js"],
-    databaseTech: ["MongoDB", "Mongoose"],
-    additionalTech: ["JWT Authentication", "Git", "VS Code"],
-    challenges: [
-      "Syncing localized shopping cart arrays across client contexts and persistent database logs.",
-      "Designing complex user filtering combinations for inventory searching."
-    ],
-    solutions: [
-      "Built custom state hooks integrated with LocalStorage sync layers, matching items automatically to server session cart logs on authentication change.",
-      "Created server-side aggregate aggregation pipelines in MongoDB to respond instantaneously to dynamic user pagination, category selection, and pricing limits."
-    ],
-    architecture: "Lightweight client-side rendered SPA interacting with a node backend. Designed with smooth microanimations and high design consistency.",
-    github: "https://github.com/khanmahfuj34/SwiftCart-Shop",
-    live: "https://github.com/khanmahfuj34/SwiftCart-Shop",
-    stats: [
-      { label: "Session Sync Latency", value: "Instant" },
-      { label: "Filtering Combinations", value: "Multi-layer" },
-      { label: "Lighthouse Score", value: "95+" }
-    ],
-    accentColor: "from-emerald-600 to-teal-500"
-  }
+
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
@@ -210,7 +151,7 @@ export const EDUCATION: EducationEntry[] = [
     period: "2022 - Present",
     description: "Acquiring core knowledge of data structures, algorithms, relational database architectures, compilers, artificial intelligence modules, and software design principles.",
     achievements: [
-      "Active Programming Contest Participant (DIU Unlock the Algorithm).",
+      "Active Programming Contest Participant (DIU Unlock the Algorithm and DIU Take Off).",
       "Core Member of Students Robotics Club, organizing and participating in technical exhibitions."
     ]
   },

@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { SiGit, SiGithub, SiVercel, SiNetlify, SiRailway } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import profastImg from "../../assets/image.png";
 
 // Lucide and react-icons mapping component
 const SkillIcon: React.FC<{ iconName: string; className?: string }> = ({ iconName, className }) => {
@@ -45,6 +46,8 @@ const SkillIcon: React.FC<{ iconName: string; className?: string }> = ({ iconNam
     case "VscVscode": return <VscVscode {...(iconProps as any)} className={`${className} text-[#007ACC]`} />;
     case "SiNetlify": return <SiNetlify {...(iconProps as any)} className={`${className} text-[#00C7B7]`} />;
     case "SiRailway": return <SiRailway {...(iconProps as any)} className={`${className} text-black dark:text-white`} />;
+    
+    case "ProfastImage": return <img src={profastImg} alt="Profast" className={`${className || "h-5 w-5"} object-contain`} />;
 
     default: return <ShieldCheck {...iconProps} className={className} />;
   }
